@@ -1,0 +1,90 @@
+//@import "../../node_modules/slick-carousel/slick/slick-theme.scss";
+//@import "../../node_modules/slick-carousel/slick/slick.scss";
+//@import "../../node_modules/mmenu-light/src/mmenu-light.scss";
+
+@import "reset";
+@import "vars";
+@import "mixins";
+
+body {
+	font-family: sans-serif;
+}
+
+.header {
+	background-color: $accent;
+	background-image: url("../img/hero.webp");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding-bottom: 3em;
+	color: white;
+	position: relative;
+	z-index: 9;
+	&__overlay{
+		position: absolute;
+		z-index: 10;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba($accent, 0.8);
+	}
+
+	&__wrapper {
+		position: relative;
+		z-index: 50;
+		width: 90%;
+		max-width: 1140px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__top {
+		width: 100%;
+		padding: 1em 0;
+	}
+
+	&__hero {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 5em 0;
+
+		h1, h3 {
+			text-align: center;
+		}
+
+		h1 {
+			font-size: 3em;
+			width: 70%;
+		}
+
+		h3 {
+			font-weight: lighter;
+		}
+	}
+
+	&__statistic{
+		display: flex;
+		width: 70%;
+		justify-content: space-between;
+		font-weight: bold;
+		div{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			span{
+				&:first-child{
+					font-weight: lighter;
+				}
+				&:last-child{
+					font-size: 2em;
+				}
+			}
+		}
+	}
+}
+
+@import "media";
