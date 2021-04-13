@@ -2,6 +2,7 @@ const { series, parallel, src, dest, watch } = require('gulp');
 
 const bs           = require('browser-sync').create();
 const del          = require('del');
+const pug          = require('gulp-pug');
 const csso         = require('gulp-csso');
 const sass         = require('gulp-sass');
 const webp         = require('gulp-webp');
@@ -29,7 +30,11 @@ const server = cb => {
 }
 
 const html = cb => {
-	src('./app/*.html')
+	src('./app/**/*.pug')
+		.pipe(pug({
+			pretty: true
+		}))
+		.pipe(dest('./app/'))
 		.pipe(bs.stream());
 	cb();
 }
@@ -94,7 +99,7 @@ const images = cb => {
 const watching = cb => {
 	watch('./app/sass/**/*', series(style));
 	watch(['./app/js/**/*.js', '!./app/js/app.min.js'], series(scripts));
-	watch('./app/*.html', series(html));
+	watch('./app/*.pug', html);
 	watch('./app/img/source/**/*', series(images));
 	cb();
 }
@@ -106,3 +111,4 @@ exports.images = images;
 exports.scripts = scripts;
 exports.style = style;
 exports.MinifyStyle = MinifyStyle;
+exports.html = html;
