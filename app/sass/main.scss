@@ -1,5 +1,3 @@
-//@import "../../node_modules/slick-carousel/slick/slick-theme.scss";
-//@import "../../node_modules/slick-carousel/slick/slick.scss";
 //@import "../../node_modules/mmenu-light/src/mmenu-light.scss";
 
 @import "reset";
@@ -19,6 +17,8 @@ body {
 
 .header {
 	padding: 1em 0;
+	background-color: $accent;
+	color: white;
 }
 
 .header {
@@ -27,6 +27,11 @@ body {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			.city{
+				a{
+					color: white;
+				}
+			}
 		}
 	}
 
@@ -43,6 +48,7 @@ body {
 
 			&--second {
 				text-align: center;
+				font-weight: lighter;
 			}
 		}
 	}
@@ -54,19 +60,25 @@ body {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			padding-bottom: 5em;
 
 			div{
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				span:first-child{
-					font-size: 1.5em;
+					font-weight: lighter;
+					font-size: 1em;
+				}
+				span:last-child{
+					font-weight: bolder;
+					font-size: 2em;
 				}
 			}
 
-			&__vacancy{}
-			&__company{}
-			&__resume{}
+			// &__vacancy{}
+			// &__company{}
+			// &__resume{}
 		}
 	}
 }
